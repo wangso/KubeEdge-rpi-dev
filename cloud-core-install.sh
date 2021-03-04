@@ -68,9 +68,9 @@ snap install kubeadm --classic || checkErr "Kubeadm installation"
 # Dont install kubelet on EdgeNode
 snap install kubelet --classic || checkErr "Kubelet installation"
 # check Kubernetes install
-# echo -e "\n${GREEN} Checking Kubernetes installation.. ${NC}\n"
-# kubectl version  || checkErr "Kubernetes installation."
-# echo -e "\n${BLUE}Kubernetes successfully installed... \n"
+echo -e "\n${GREEN} Checking Kubernetes installation.. ${NC}\n"
+kubectl version  
+echo -e "\n${BLUE}Kubernetes successfully installed... \n"
 
 # The following golang installation is only for CloudNode with AMD64 architecture
 echo -e "\n${GREEN} Installing Golang... ${NC}\n"
