@@ -64,10 +64,10 @@ echo -e "\n${BLUE}Golang successfully installed... \n"
 
 # add environment variables
 echo -e "\n{GREEN}Adding Go path environment variables into system...${NC}\n"
-echo "export PATH=$PATH:/snap/bin:/usr/go/bin
-export GOPATH=/root/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN:$GOROOT/bin
+echo "export PATH=\$PATH:/snap/bin:/usr/go/bin
+export GOPATH=/usr/go
+export GOBIN=\$GOPATH/bin
+export PATH=\$PATH:\$GOBIN:\$GOROOT/bin
 export GO111MODULE=auto" | tee -a /etc/bash.bashrc || checkErr "Adding path environment variables into system"
 source /etc/bash.bashrc || checkErr "Loading environment variables..."
 echo -e "\n${BLUE}Go path environment variables successfully loaded...${NC}\n"
