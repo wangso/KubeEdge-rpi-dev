@@ -10,36 +10,36 @@
 
 ## On RPi edge core node:
 
-#### 1) Prepare Raspberry Pi with Ubuntu server 20.04.2
-#### 2) Setup networking on RPi and port forwarding if it is in Home network (port 22 needs to be forwarded for SSH and SCP)
-#### 3) Check for public IP of the node
-#### 4) enable root login on the node
-####    $ sudo su
-####    $ nano /etc/etc/ssh/sshd_config
-####    Change “PermitRootLogin without-password” to “PermitRootLogin yes”
-####    $ systemctl restart sshd
-#### 5) change root password
-####    $ sudo su 
-####    $ passwd
+ 1) Prepare Raspberry Pi with Ubuntu server 20.04.2
+ 2) Setup networking on RPi and port forwarding if it is in Home network (port 22 needs to be forwarded for SSH and SCP)
+ 3) Check for public IP of the node
+ 4) enable root login on the node
+    $ sudo su
+    $ nano /etc/etc/ssh/sshd_config
+    Change “PermitRootLogin without-password” to “PermitRootLogin yes”
+    $ systemctl restart sshd
+ 5) change root password
+    $ sudo su 
+    $ passwd
 
 
 ## On Cloud core node:
 
-#### $ sudo su
-#### $ cd /root
-#### $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
-#### $ bash KubeEdge-rpi-dev/cloud-core-install.sh
-#### $ bash KubeEdge-rpi-dev/obtain-token.sh
+ $ sudo su
+ $ cd /root
+ $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
+ $ bash KubeEdge-rpi-dev/cloud-core-install.sh
+ $ bash KubeEdge-rpi-dev/obtain-token.sh
 
 
 ## on Edge core node:
 
-#### $ sudo su
-#### $ cd /root
-#### $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
-#### $ bash KubeEdge-rpi-dev/edge-core-install.sh
-#### $ bash KubeEdge-rpi-dev/edge-core-join.sh
+ $ sudo su
+ $ cd /root
+ $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
+ $ bash KubeEdge-rpi-dev/edge-core-install.sh
+ $ bash KubeEdge-rpi-dev/edge-core-join.sh
 
 ## On Cloud core node:
-#### $ bash KubeEdge-rpi-dev/cloud-app-install.sh
+ $ bash KubeEdge-rpi-dev/cloud-app-install.sh
 
