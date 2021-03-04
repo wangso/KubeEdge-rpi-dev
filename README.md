@@ -25,7 +25,7 @@
 
 ## On Cloud core node:
 
-#### $ sudo su
+ $ sudo su
 #### $ cd /root
 #### $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
 #### $ bash KubeEdge-rpi-dev/cloud-core-install.sh
