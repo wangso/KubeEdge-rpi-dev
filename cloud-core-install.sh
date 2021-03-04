@@ -61,6 +61,7 @@ echo -e "\n${BLUE}Docker successfully installed... \n"
 # install snap package manager
 echo -e "\n${GREEN}Installing snap package manager...${NC}\n"
 apt-get -y install snap
+apt-get -y install snapd 
 echo -e "\n${BLUE}Snap successfully installed... \n"
 
 echo -e "\n${GREEN}Installing Kubernetes packages...${NC}\n"
