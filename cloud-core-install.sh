@@ -87,7 +87,7 @@ export GOPATH=/usr/go
 export GOBIN=\$GOPATH/bin
 export PATH=\$PATH:\$GOBIN:\$GOROOT/bin
 export GO111MODULE=auto" | tee -a /etc/bash.bashrc || checkErr "Adding path environment variables into system"
-source /etc/bash.bashrc || checkErr "Loading environment variables..."
+. /etc/bash.bashrc || checkErr "Loading environment variables..."
 echo -e "\n${BLUE}Go path environment variables successfully loaded...${NC}\n"
 
 # install Kubeedge v1.5.0
