@@ -45,14 +45,14 @@ apt-get -y install snap
 echo -e "\n${BLUE}Snap successfully installed... \n"
 
 echo -e "\n${GREEN}Installing Kubernetes packages...${NC}\n"
-apt-get -y install kubectl --classic || checkErr "Kubectl installation"
-apt-get -y install kubeadm --classic || checkErr "Kubeadm installation"
+snap install kubectl --classic || checkErr "Kubectl installation"
+snap install kubeadm --classic || checkErr "Kubeadm installation"
 # Dont install kubelet on EdgeNode
 # apt-get -y install kubelet --classic || checkErr "Kubelet installation error..."
 
 # check Kubernetes install
 echo -e "\n${GREEN} Checking Kubernetes installation.. ${NC}\n"
-kubectl --version  || checkErr "Kubernetes not installed correctly..."
+kubectl version  || checkErr "Kubernetes not installed correctly..."
 echo -e "\n${BLUE}Kubernetes successfully installed... \n"
 
 # The following golang installation is only for edgeNode with arm64 architecture
