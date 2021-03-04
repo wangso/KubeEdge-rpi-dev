@@ -57,6 +57,7 @@ echo -e "\n${BLUE}Kubernetes successfully installed... \n"
 
 # The following golang installation is only for edgeNode with arm64 architecture
 echo -e "\n${GREEN} Installing Golang... ${NC}\n"
+cd /root/
 wget https://golang.org/dl/go1.16.linux-arm64.tar.gz || checkErr "Downloading Golang"
 tar -C /usr/ -xzf /root/go1.16.linux-arm64.tar.gz || checkErr "Extracting Golang package"
 echo -e "\n${BLUE}Golang successfully installed... \n"

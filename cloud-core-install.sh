@@ -45,6 +45,7 @@ fi
 # sudo su || checkErr "Error: Not able to switch to root user..."
 # echo -e "\n${BLUE}Switched to root user... \n"
 
+cd /root/
 
 # install library prerequisites
 echo -e "\n${GREEN}Installing required libraries.. ${NC}\n"
@@ -74,6 +75,7 @@ echo -e "\n${BLUE}Kubernetes successfully installed... \n"
 
 # The following golang installation is only for CloudNode with AMD64 architecture
 echo -e "\n${GREEN} Installing Golang... ${NC}\n"
+cd /root/
 wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz || checkErr "Downloading Golang"
 tar -C /usr/ -xzf /root/go1.15.7.linux-amd64.tar.gz || checkErr "Extracting Golang package"
 echo -e "\n${BLUE}Golang successfully installed... \n"
