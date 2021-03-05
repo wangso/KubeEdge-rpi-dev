@@ -91,14 +91,14 @@ export GO111MODULE=auto" | tee -a /etc/bash.bashrc || checkErr "Adding path envi
 bash /etc/bash.bashrc || checkErr "Loading environment variables..."
 echo -e "\n${BLUE}Go path environment variables successfully loaded...${NC}\n"
 
-# install Kubeedge v1.5.0
-echo -e "\n${GREEN}Installing KubeEdge v1.5.0...${NC}\n"
+# install Kubeedge v1.6.0
+echo -e "\n${GREEN}Installing KubeEdge v1.6.0...${NC}\n"
 mkdir -p /etc/kubeedge/ || checkErr "Error: Not able to create kubeedge directory..."
 cd /etc/kubeedge
 
 # The following Kubeedge version is only for CloudNode with AMD64 architecture
-# echo -e "\n${GREEN}Downloading KubeEdge v1.5.0...${NC}\n"
-# wget https://github.com/kubeedge/kubeedge/releases/download/v1.5.0/kubeedge-v1.5.0-linux-amd64.tar.gz || checkErr "Error downloading Kubeedge ..."
+# echo -e "\n${GREEN}Downloading KubeEdge v1.6.0...${NC}\n"
+# wget https://github.com/kubeedge/kubeedge/releases/download/v1.6.0/kubeedge-v1.6.0-linux-amd64.tar.gz || checkErr "Error downloading Kubeedge ..."
 # echo -e "\n${BLUE}Kubeedge successfully downloaded...${NC}\n"
 
 echo -e "\n${GREEN}Downloading KubeEdge git repo...${NC}\n"
@@ -161,7 +161,7 @@ echo -e "\n${BLUE}Finished checking Kubernetes nodes...${NC}\n"
 
 # Create Kubeedge Cloud node 
 echo -e "\n${GREEN}Creating Kubeedge cloud node...${NC}\n"
-keadm init --advertise-address="$2" --kubeedge-version=1.5.0  --kube-config=/root/.kube/config || checkErr "Creating Kubeedge cloud node"
+keadm init --advertise-address="$2" --kubeedge-version=1.6.0  --kube-config=/root/.kube/config || checkErr "Creating Kubeedge cloud node"
 echo -e "\n${BLUE}Finished creating Kubeedge cloud node...${NC}\n"
 
 # Create certificates and keys, and copy to edge node

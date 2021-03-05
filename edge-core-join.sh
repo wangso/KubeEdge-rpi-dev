@@ -35,4 +35,4 @@ fi
 
 
 # start Keadm and connect to Cloud core node
-keadm join --cloudcore-ipport="$1":10000 --token="$2" --edgenode-name=test1 --kubeedge-version=1.5.0 || checkErr "Joining edge core to cluster"
+keadm join --cloudcore-ipport="$1":10000 --token="$2" --edgenode-name=test1 --kubeedge-version=1.6.0 || checkErr "Joining edge core to cluster"
