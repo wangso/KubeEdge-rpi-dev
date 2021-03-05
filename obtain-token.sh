@@ -16,6 +16,6 @@ function checkErr() {
     echo -e "${RED}$1 failed. Exiting.${NC}" >&2; exit;
 }
 
-echo -e "Acquiring your token to be used to join edge core to the KubeEdge cluster Cloud core: \n"
+echo -e "Acquiring your token to be used to join edge core to the KubeEdge cluster Cloud core: \n${GREEN}"
 kubectl get secret -nkubeedge tokensecret -o=jsonpath='{.data.tokendata}' | base64 -d || checkErr "Getting token from the cloud core"
-echo -e "\n\nPlease take down the token, and pass it to edge-core-join.sh script: \n"
+echo -e "\n\n${NC}Please take down the token, and pass it to edge-core-join.sh script: \n"
