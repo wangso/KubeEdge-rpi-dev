@@ -18,4 +18,4 @@ function checkErr() {
 
 echo -e "Acquiring your token to be used to join edge core to the KubeEdge cluster Cloud core: \n"
 kubectl get secret -nkubeedge tokensecret -o=jsonpath='{.data.tokendata}' | base64 -d || checkErr "Getting token from the cloud core"
-echo -e "Please take down the token, and pass it to edge-core-join.sh script: \n"
+echo -e "\nPlease take down the token, and pass it to edge-core-join.sh script: \n"

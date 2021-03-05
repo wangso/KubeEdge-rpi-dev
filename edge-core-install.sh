@@ -77,10 +77,10 @@ echo -e "\n${GREEN}Installing KubeEdge v1.5.0...${NC}\n"
 mkdir -p /etc/kubeedge/ || checkErr "Creating kubeedge directory"
 cd /etc/kubeedge
 
-# The following Kubeedge version is only for CloudNode with AMD64 architecture
-# echo -e "\n${GREEN}Downloading KubeEdge v1.5.0...${NC}\n"
-# wget https://github.com/kubeedge/kubeedge/releases/download/v1.5.0/kubeedge-v1.5.0-linux-amd64.tar.gz || checkErr "Error downloading Kubeedge ..."
-# echo -e "\n${BLUE}Kubeedge successfully downloaded...${NC}\n"
+The following Kubeedge version is only for CloudNode with AMD64 architecture
+echo -e "\n${GREEN}Downloading KubeEdge v1.5.0...${NC}\n"
+wget https://github.com/kubeedge/kubeedge/releases/download/v1.5.0/kubeedge-v1.5.0-linux-arm64.tar.gz || checkErr "Error downloading Kubeedge ..."
+echo -e "\n${BLUE}Kubeedge successfully downloaded...${NC}\n"
 
 echo -e "\n${GREEN}Downloading KubeEdge git repo...${NC}\n"
 git clone https://github.com/kubeedge/kubeedge $GOPATH/src/github.com/kubeedge/kubeedge || checkErr "Downloading Kubeedge git repo"
