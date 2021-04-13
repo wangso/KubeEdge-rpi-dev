@@ -1,0 +1,10 @@
+FROM valian/docker-python-opencv-ffmpeg
+MAINTAINER Songjie Wang "wangso@missouri.edu"
+RUN apt-get -y update 
+RUN apt-get -y install wget nano curl apt-utils python3 python3-pip python3-dev build-essential unzip nano curl
+RUN git clone https://github.com/wangso/ImageProcessingWebServices.git
+WORKDIR /ImageProcessingWebServices/Client
+RUN pip install --upgrade pip
+RUN pip install requests
+RUN easy_install requests
+ENTRYPOINT ["python", "client.py"]
