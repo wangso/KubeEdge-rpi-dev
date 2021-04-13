@@ -52,7 +52,7 @@ The following endpoints currently exist.
 
     $ kubectl logs -f server_pod_ID
 
-3. Update server address to listen to
+3. Update server address to listen to (URL is depending on if the host machine has TLS, change to HTTP if no TLS on the host)
 
     $ curl -X POST -H 'Content-Type: application/json' https://Server_IP:Port/setNextServer -d '{"server":"Server_IP:Port"}'
     
