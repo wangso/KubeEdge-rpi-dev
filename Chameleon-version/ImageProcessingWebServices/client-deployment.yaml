@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: imgproc-client
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: imageProcessing
+            tier: client
+    template:
+        metadata:
+            labels:
+                app: imageProcessing
+                tier: client
+        spec:
+            containers:
+            - name: imgproc-client
+              image: wangso/imgproc-client:V1
+              imagePullPolicy: Always
+              env:
+                - name: server
+                  value: Server_IP:Port
+              volumeMounts:
+              - mountPath: /ImageProcessingWebServices/output/client
+                name: yourvolume
+            volumes:
+            - name: yourvolume
+              persistentVolumeClaim:
+                claimName: mizzoucerivolume
+            restartPolicy: Always
+
+      

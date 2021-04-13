@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: motion-detection
+  name: motion-detection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: motion-detection
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: motion-detection
+    spec:
+      nodeSelector:
+        nodePool: cluster
+      containers:
+      - name: motion-detection
+        image: wangso/kubeedge-motion-detection
+        imagePullPolicy: IfNotPresent
+        command: ["--camera=http://wangso:kubeedge@173.22.148.144:8088"]
+        volumeMounts:
+          - name: video-data
+            mountPath: /motion_detection/data/video/
+      restartPolicy: Always
+      volumes:
+        - name: video-data
+          hostPath:
+            path: /data/video
+status: {}
+
+
