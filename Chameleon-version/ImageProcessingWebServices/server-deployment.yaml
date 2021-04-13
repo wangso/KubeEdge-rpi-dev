@@ -21,7 +21,7 @@ spec:
         nodePool: master
       containers:
       - name: imgproc-server
-        image: wangso/imgproc-server:chameleon
+        image: wangso/imgproc-server:V1
         imagePullPolicy: Always
         ports:
           - containerPort: 5000
