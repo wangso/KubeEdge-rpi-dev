@@ -10,9 +10,10 @@
       # The command to login to root user is : sudo su
       # and the command to logout to your user is : exit
 
+# This script takes one argument, the IP of the edge node to add to the cluster 
 
 #check to make sure argument edgeNode IP provided
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 1 ]; then
     echo -e "\n${RED}Please provide the public IP of the Edge node. Exiting...${NC}"
     exit
 fi
@@ -36,28 +37,19 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 
-# $1: IP of Edge node 1
-# $2: IP of Edge node 2  
-edge_node1_IP=$1
-edge_node2_IP=$2
-
+# $1: IP of Edge node
+edge_node_IP=$1
 
 cd /root/
 
 # setup remote login to edge node
 echo -e "\n${GREEN}Copying ssh key to edge nodes ..., please enter your root password for edge node${NC}\n"
-ssh-copy-id root@"$edge_node1_IP" || checkErr "Copying ssh key to edge node 1"
-ssh-copy-id root@"$edge_node2_IP" || checkErr "Copying ssh key to edge node 2"
+ssh-copy-id root@"$edge_node_IP" || checkErr "Copying ssh key to edge node 1"
 echo -e "\n${BLUE}SSH key successfully copied to edge nodes...${NC}\n"
 
-# Copy certificate files to edge node 1
-scp -r /etc/kubeedge/certs root@"$edge_node1_IP":/etc/kubeedge/ || checkErr "Copying certificates to edge node"
-scp -r /etc/kubeedge/ca root@"$edge_node1_IP":/etc/kubeedge/ || checkErr "Copying ca to edge node"
-echo -e "\n${BLUE}Finished copying certificates to edge node...${NC}\n\n\n"
-
-# Copy certificate files to edge node 2
-scp -r /etc/kubeedge/certs root@"$edge_node2_IP":/etc/kubeedge/ || checkErr "Copying certificates to edge node"
-scp -r /etc/kubeedge/ca root@"$edge_node2_IP":/etc/kubeedge/ || checkErr "Copying ca to edge node"
+# Copy certificate files to edge node 
+scp -r /etc/kubeedge/certs root@"$edge_node_IP":/etc/kubeedge/ || checkErr "Copying certificates to edge node"
+scp -r /etc/kubeedge/ca root@"$edge_node_IP":/etc/kubeedge/ || checkErr "Copying ca to edge node"
 echo -e "\n${BLUE}Finished copying certificates to edge node...${NC}\n\n\n"
 
 echo -e "\n${GREEN}The KubeEdge Cloud core node has been prepared successfully... ${NC}\n"
