@@ -42,7 +42,7 @@
  
       $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
  
-      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/cloud-core-install.sh cloud_core_IP
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/cloud-core-install.sh $cloud_core_IP
  
       $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/obtain-token.sh
 
@@ -56,7 +56,7 @@
  
       $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-install.sh 
  
-      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh cloud_core_IP token edge_node_name
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh $cloud_core_IP $token $edge_node_name
 
 
 
