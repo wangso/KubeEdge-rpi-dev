@@ -14,6 +14,8 @@ spec:
                 app: imageProcessing
                 tier: client
         spec:
+            nodeSelector:
+              nodePool: tamu-worker1
             containers:
             - name: imgproc-client
               image: wangso/imgproc-client:V1
