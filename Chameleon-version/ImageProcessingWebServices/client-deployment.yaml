@@ -23,11 +23,10 @@ spec:
                   value: Server_IP:Port
               volumeMounts:
               - mountPath: /ImageProcessingWebServices/output/client
-                name: yourvolume
+                name: output
             volumes:
-            - name: yourvolume
-              persistentVolumeClaim:
-                claimName: mizzoucerivolume
+            - name: output
+              hostPath:
+                path: /output/client
             restartPolicy: Always
-
       
