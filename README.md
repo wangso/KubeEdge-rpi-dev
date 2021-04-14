@@ -56,7 +56,7 @@
  
       $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-install.sh 
  
-      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh cloud_core_IP
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh cloud_core_IP token edge_node_name
 
 
 
