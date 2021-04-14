@@ -34,7 +34,7 @@
 
       And add your own password 
 
-## On Cloud core node:
+## On cloud core node:
 
       $ sudo su
  
@@ -46,7 +46,7 @@
  
       $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/obtain-token.sh
 
-## on each Edge core node:
+## On each edge core node:
 
       $ sudo su
  
