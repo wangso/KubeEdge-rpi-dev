@@ -14,11 +14,11 @@
 
 1)	Switch to sudo 
 
-   $ sudo su
+      $ sudo su
    
-   $ cd /root
+      $ cd /root
     
-   $ export PATH=$PATH:/snap/bin
+      $ export PATH=$PATH:/snap/bin
      
 2)	Setup Root SSH login with password (the string to replace might be different depending on your OS)
 
