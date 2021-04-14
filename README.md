@@ -6,22 +6,37 @@
 #### "cloud-app-install.sh" contains scripts to install example application on the Cloud core
 #### "edge-core-join.sh" to join the RPi edge node into the K8s cluster
 
-# Order of running:
 
-## On RPi edge core node:
 
- 1) Prepare Raspberry Pi with Ubuntu server 20.04.2
- 2) Setup networking on RPi and port forwarding if it is in Home network (port 22 needs to be forwarded for SSH and SCP)
- 3) Check for public IP of the node
- 4) enable root login on the node
-    $ sudo su
-    $ nano /etc/etc/ssh/sshd_config
-    Change “PermitRootLogin without-password” to “PermitRootLogin yes”
-    $ systemctl restart sshd
- 5) change root password
-    $ sudo su 
-    $ passwd
+# Working installation on GCP/AWS/GENI
 
+## On edge core nodes:
+
+1)	Switch to sudo 
+
+   $ sudo su
+   
+   $ export PATH=$PATH:/snap/bin
+   
+2)	Clone git repo:
+
+   $ cd /root
+   
+   $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
+   
+3)	Setup Root SSH login with password (the string to replace might be different depending on your OS)
+
+   $ sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config 
+
+   $ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+   
+   $ systemctl restart sshd
+   
+4)	Setup root password
+
+   $ passwd
+
+   And add your own password 
 
 ## On Cloud core node:
 
@@ -31,10 +46,9 @@
  
  $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
  
- $ bash KubeEdge-rpi-dev/cloud-core-install.sh cloud_core_IP
+ $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/cloud-core-install.sh cloud_core_IP
  
- $ bash KubeEdge-rpi-dev/obtain-token.sh
-
+ $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/obtain-token.sh
 
 ## on Edge core node:
 
@@ -44,10 +58,9 @@
  
  $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
  
- $ bash KubeEdge-rpi-dev/edge-core-install.sh 
+ $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-install.sh 
  
- $ bash KubeEdge-rpi-dev/edge-core-join.sh cloud_core_IP
+ $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh cloud_core_IP
 
-## On Cloud core node:
- $ bash KubeEdge-rpi-dev/cloud-app-install.sh
+
 
