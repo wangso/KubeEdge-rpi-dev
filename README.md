@@ -22,41 +22,41 @@
      
 2)	Setup Root SSH login with password (the string to replace might be different depending on your OS)
 
-   $ sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config 
+      $ sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config 
 
-   $ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+      $ sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
    
-   $ systemctl restart sshd
+      $ systemctl restart sshd
    
 3)	Setup root password
 
-   $ passwd
+      $ passwd
 
-   And add your own password 
+      And add your own password 
 
 ## On Cloud core node:
 
-   $ sudo su
+      $ sudo su
  
-   $ cd /root
+      $ cd /root
  
-   $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
+      $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
  
-   $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/cloud-core-install.sh cloud_core_IP
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/cloud-core-install.sh cloud_core_IP
  
-   $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/obtain-token.sh
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-cloud-install/obtain-token.sh
 
 ## on each Edge core node:
 
-   $ sudo su
+      $ sudo su
  
-   $ cd /root
+      $ cd /root
  
-   $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
+      $ git clone https://github.com/wangso/KubeEdge-rpi-dev.git
  
-   $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-install.sh 
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-install.sh 
  
-   $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh cloud_core_IP
+      $ bash /root/KubeEdge-rpi-dev/Chameleon-version/kubeedge-edge-install/edge-core-join.sh cloud_core_IP
 
 
 
